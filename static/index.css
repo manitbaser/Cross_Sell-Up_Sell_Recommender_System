@@ -1,0 +1,88 @@
+.product{
+    position: relative;
+    top: 30vh;
+    left: 10vw;
+    width: 20vw;
+    padding-left: 3vw;
+}
+
+
+body {
+	background: linear-gradient(-45deg,  #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+input[type=text]{
+    width: 300px;
+    /* padding: 10px 20px; */
+    padding-top: 5px;
+    padding-bottom: 10px;
+    border-color: transparent;
+    border-bottom: 1px solid whitesmoke;
+    font-size: 15px;
+    background: transparent;
+}
+  
+input:focus{
+  outline: none;
+}
+  
+input::-webkit-input-placeholder {
+    padding-left: 5px;
+    font-size: 15px;
+    color: whitesmoke;
+}
+  
+input:-moz-placeholder { /* Firefox 18- */
+    padding-left: 5px;
+    font-size: 15px;
+    color: whitesmoke;
+}
+  
+input::-moz-placeholder {  /* Firefox 19+ */
+    padding-left: 5px;
+    font-size: 15px;
+    color: whitesmoke;
+}
+  
+input:-ms-input-placeholder {
+    padding-left: 5px;
+    font-size: 15px;
+    color: whitesmoke;
+}
+
+label{
+    font-size: 20px;
+    /* color: rgb(82, 71, 71); */
+    color: rgb(99, 93, 93);
+    padding-top: 5px;
+}
+input[type=submit] {
+    cursor: pointer;
+    border: 1px solid white;
+    background-color: transparent;
+    height: 50px;
+    width: 200px;
+    color: white;
+    font-size: 17px;
+    /* box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6); */
+}
+
+.form-label{
+    font-size: 25px;
+    color: rgb(99, 93, 93);
+    font-weight: bold;
+}

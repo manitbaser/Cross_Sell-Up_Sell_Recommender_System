@@ -16,5 +16,5 @@ def main_recommend(user_id, user_product, user_qty):
 	common3 = [(user_qty, i) for i in common3]
 	new3 = [(user_qty, i) for i in new3]
 
-
+	
 	return [new1, new2, new3, common1, common2, common3]
