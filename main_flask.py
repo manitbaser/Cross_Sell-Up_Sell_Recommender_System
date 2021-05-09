@@ -30,19 +30,18 @@ def success(user_id, user_product, user_qty):
 			return render_template('results.html', res=ret, user_id=user_id, user_product=user_product, user_qty=user_qty)
 		if(request.form['bc']!=''):
 			c2p_blacklist = request.form['bc']
-			if c2p_blacklist=='' or int(c2p_blacklist) not in (data2):
-				print("Hello")
+			if c2p_blacklist=='' or isint(c2p_blacklist)==False or int(c2p_blacklist) not in (data2):
 				ret=main_recommend(int(user_id), int(user_product), float(user_qty))
-				render_template('results.html', res=ret, user_id=user_id, user_product=user_product, user_qty=user_qty, flash_message="Invalid Product ID provided")
+				return render_template('results.html', res=ret, user_id=user_id, user_product=user_product, user_qty=user_qty, flash_message="Invalid Product ID provided")
 			blacklist_customer_product(int(user_id), int(c2p_blacklist))
 			ret=main_recommend(int(user_id), int(user_product), float(user_qty))
 			return render_template('results.html', res=ret, user_id=user_id, user_product=user_product, user_qty=user_qty)
 			
 		if(request.form['bp']!=''):
 			p2p_blacklist = request.form['bp']
-			if p2p_blacklist=='' or int(p2p_blacklist) not in (data2):
+			if p2p_blacklist=='' or isint(p2p_blacklist)==False or int(p2p_blacklist) not in (data2):
 				ret=main_recommend(int(user_id), int(user_product), float(user_qty))
-				render_template('results.html', res=ret, user_id=user_id, user_product=user_product, user_qty=user_qty, flash_message="Invalid Product ID provided")
+				return render_template('results.html', res=ret, user_id=user_id, user_product=user_product, user_qty=user_qty, flash_message="Invalid Product ID provided")
 			blacklist_product_product(int(user_product), int(p2p_blacklist))
 			ret=main_recommend(int(user_id), int(user_product), float(user_qty))
 			return render_template('results.html', res=ret, user_id=user_id, user_product=user_product, user_qty=user_qty)
