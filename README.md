@@ -18,14 +18,38 @@ The dataset has been provided by AB InBev as a part of their hackathon Maverick 
 
 ### Installation and setup
 
-1. Open terminal and come to the main directory.
-2. Input the following commands by creating a new conda environment:
+* Before starting the installation process, please ensure that you have conda/virtualenv installed.
 
-        conda create --name recsys python=3.8.5
+1. Open terminal and clone the reposotory:
+
+```bash
+  git clone https://github.com/milonimittal/Cross_Sell-Up_Sell.git
+ ```
+
+2. Change into project directory:
+
+```bash
+  cd Cross_Sell-Up_Sell
+```
+
+3. Create python environment:
+
+```bash
+  conda create --name recsys python=3.8.5
+```
+
+4. Activate environment:
         
-        conda activate recsys
-        
-        pip install -r requirements.txt
+```bash
+   conda activate recsys
+```
+
+5. Install dependencies:
+
+```bash
+   pip install -r requirements.txt
+```   
+
 
 
 ## Contributing
