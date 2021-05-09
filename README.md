@@ -2,7 +2,7 @@
 # Cross-Sell Up-Sell Recommender System
 A recommender system that enables cross sell and upsell of products (either new products or already bought products) that will enable higher revenue generation. The data captures material that is sent to the wholesalers over a span of time.
 
-![Demo Video](https://drive.google.com/file/d/1n7JeZZ4E5O_HIuUbOQGvoNWYFVpzAHEV/view?usp=sharing)
+[![](Sample.png)](https://drive.google.com/file/d/1n7JeZZ4E5O_HIuUbOQGvoNWYFVpzAHEV/view?usp=sharing)
 
 ## Objectives
 * [x] Finding how similar other wholesalers are to W1.
