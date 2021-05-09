@@ -20,8 +20,11 @@ The dataset has been provided by AB InBev as a part of their hackathon Maverick 
 
 1. Open terminal and come to the main directory.
 2. Input the following commands by creating a new conda environment:
+
         conda create --name recsys python=3.8.5
+        
         conda activate recsys
+        
         pip install -r requirements.txt
 
 
