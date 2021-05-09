@@ -45,27 +45,162 @@
    </head>
 
    <body>
-      <br>
       
-      <br><br>
+      <!-- <br><br> -->
       <div class="row">
          <div class="columnside">
-			 <br><br><br><br><br><br>
+			<p><input onclick ="go_back();" type = "button" href='/' value="Go back" class="btn"></a></p>
+			<script>
+				function go_back(){
+					window.location.replace('/')
+				}
+			</script>
+			<br><br>
 			<img class="center_logo" height="300vh" alt="Robot logo" src="/images/Maverick.png"></img>
+			<br><br>
+			<form class="center" action = "/success/{{user_id}}/{{user_product}}/{{user_qty}}/" method = "post">
+				Blacklist for Customer:
+				<p><input type = "text" placeholder="Enter Product ID" name = "bc"  id="bc"/><input type = "submit" value="Blacklist" class="btn"  /></p>
+			<!-- </form>
+			<form class="center"> -->
+				Blacklist for Product:
+				<p><input type = "text" placeholder="Enter Product ID" name = "bp"  id="bp"/><input type = "submit" value="Blacklist" class="btn"/></p>
+			</form>
 		 </div>
             <div class="column">
                <div class="center">
-				   <form class="center">New recommendations based on users using similar product: {{res[0]}}</form>
-				   <form class="center">New recommendations based on users in similar location and groupements: {{res[1]}}</form>
-				   <form class="center">New recommendations based on similar products: {{res[2]}}</form>
-				   <form class="center">Previously ordered products recommendations based on users using similar product: {{res[3]}}</form>
-				   <form class="center">Previously ordered products recommendations based on users in similar location and groupements: {{res[4]}}</form>
-				   <form class="center">Previously ordered products recommendations based on similar products: {{res[5]}}</form>
+				
+				   <form class="center">New recommendations based on users using similar product:
+					{% if res[0]|length > 0 %}
+					<br>
+					<table class="table">
+						<thead>
+							<tr>
+							<th scope="col">Product ID</th>
+							<th scope="col">Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for your_list_element in res[0] %}
+							<tr>
+								<td>{{your_list_element[1]}}</td>
+								<td>{{your_list_element[0]}}</td>
+							</tr>
+						{% endfor %}
+						</tbody>
+						</table>
+						{% endif %}
+					</form>
+					
+				   <form class="center">New recommendations based on users in similar location and groupements:
+					<br>
+					{% if res[1]|length > 0 %}
+					<table class="table">
+						<thead>
+							<tr>
+							<th scope="col">Product ID</th>
+							<th scope="col">Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for your_list_element in res[1] %}
+							<tr>
+								<td>{{your_list_element[1]}}</td>
+								<td>{{your_list_element[0]}}</td>
+							</tr>
+						{% endfor %}
+						</tbody>
+						</table>
+						{% endif %}
+				   </form>
+				   <form class="center">New recommendations based on similar products:
+					<br>
+					{% if res[2]|length > 0 %}
+					<table class="table">
+						<thead>
+							<tr>
+							<th scope="col">Product ID</th>
+							<th scope="col">Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for your_list_element in res[2] %}
+							<tr>
+								<td>{{your_list_element[1]}}</td>
+								<td>{{your_list_element[0]}}</td>
+							</tr>
+						{% endfor %}
+						</tbody>
+						</table>
+						{% endif %}
+				   </form>
+				   <form class="center">Previously ordered products recommendations based on users using similar product:
+					<br>
+					{% if res[3]|length > 0 %}
+					<table class="table">
+						<thead>
+							<tr>
+							<th scope="col">Product ID</th>
+							<th scope="col">Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for your_list_element in res[3] %}
+							<tr>
+								<td>{{your_list_element[1]}}</td>
+								<td>{{your_list_element[0]}}</td>
+							</tr>
+						{% endfor %}
+						</tbody>
+						</table>
+						{% endif %}
+
+				   </form>
+				   <form class="center">Previously ordered products recommendations based on users in similar location and groupements:
+						<br>
+						{% if res[4]|length > 0 %}
+						<table class="table">
+						<thead>
+							<tr>
+							<th scope="col">Product ID</th>
+							<th scope="col">Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for your_list_element in res[4] %}
+							<tr>
+								<td>{{your_list_element[1]}}</td>
+								<td>{{your_list_element[0]}}</td>
+							</tr>
+						{% endfor %}
+						</tbody>
+						</table>
+						{% endif %}
+			</form>
+				   </form>
+				   <form class="center">Previously ordered products recommendations based on similar products:
+					<br>
+					{% if res[5]|length > 0 %}
+					<table class="table">
+						<thead>
+							<tr>
+							<th scope="col">Product ID</th>
+							<th scope="col">Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for your_list_element in res[5] %}
+							<tr>
+								<td>{{your_list_element[1]}}</td>
+								<td>{{your_list_element[0]}}</td>
+							</tr>
+						{% endfor %}
+						</tbody>
+						</table>
+						{% endif %}
+				   </form>
                </div>
-			   <a href='/'>Go back</a>
             </div>
-            <!-- <div class="columnside"> -->
-         <!-- </div> -->
       </div>
    </body>
 </html>
