@@ -1,14 +1,71 @@
 <html>
 
 <body>
-	<p>
-		New recommendations based on users using similar product: {{res[0]}}<br>
-		New recommendations based on users in similar location and groupements: {{res[1]}}<br>
-		New recommendations based on similar products: {{res[2]}}<br>
-		Previously ordered products recommendations based on users using similar product: {{res[3]}}<br>
-		Previously ordered products recommendations based on users in similar location and groupements: {{res[4]}}<br>
-		Previously ordered products recommendations based on similar products: {{res[5]}}<br>
-	</p>
+	
 </body>
 
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>UnScript</title>
+      <link rel="stylesheet" href="/static/index.css">
+      <link rel="stylesheet" href="/static/images/Maverick.png">
+      <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+      <style>
+         * {
+         box-sizing: border-box;
+         }
+
+         .columnside {
+         float: left;
+         width: 40%;
+         padding: 10px;
+         }
+         .column {
+         float: left;
+         width: 60%;
+         padding: 10px;
+         }
+
+         .row:after {
+         content: "";
+         display: table;
+         clear: both;
+         }
+         .center_logo {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+         }
+      </style>
+   </head>
+
+   <body>
+      <br>
+      
+      <br><br>
+      <div class="row">
+         <div class="columnside">
+			 <br><br><br><br><br><br>
+			<img class="center_logo" height="300vh" alt="Robot logo" src="/images/Maverick.png"></img>
+		 </div>
+            <div class="column">
+               <div class="center">
+				   <form class="center">New recommendations based on users using similar product: {{res[0]}}</form>
+				   <form class="center">New recommendations based on users in similar location and groupements: {{res[1]}}</form>
+				   <form class="center">New recommendations based on similar products: {{res[2]}}</form>
+				   <form class="center">Previously ordered products recommendations based on users using similar product: {{res[3]}}</form>
+				   <form class="center">Previously ordered products recommendations based on users in similar location and groupements: {{res[4]}}</form>
+				   <form class="center">Previously ordered products recommendations based on similar products: {{res[5]}}</form>
+               </div>
+			   <a href='/'>Go back</a>
+            </div>
+            <!-- <div class="columnside"> -->
+         <!-- </div> -->
+      </div>
+   </body>
 </html>

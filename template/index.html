@@ -1,25 +1,60 @@
+<!DOCTYPE html>
 <html>
+   <head>
+      <title>UnScript</title>
+      <link rel="stylesheet" href="/static/index.css">
+      <link rel="stylesheet" href="/static/images/Maverick.png">
+      <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+      <style>
+         * {
+         box-sizing: border-box;
+         }
 
-<head>
-   <link rel="stylesheet" href="index.css">
-</head>
+         .columnside {
+         float: left;
+         width: 30%;
+         padding: 10px;
+         }
+         .column {
+         float: left;
+         width: 40%;
+         padding: 10px;
+         }
 
-<body>
-   <div class="product">
-      <p class="form-label">Select a product:</p>
-      <form action="http://localhost:5000/" method="post" >
-         <label for="nm">User ID:</label>
-         <input type="text" name="nm" id="nm" /><br><br>
-         <label for="pr">Product:</label>
-         <input type="text" name="pr" id="pr" /><br><br>
-         <label for="qty">Quantity:</label>
-         <input type="text" name="qty" id="qty" /><br><br>
-         <input type="submit" value="Provide reccomendation" class="btn" />
-      </form>
-   </div>
-   <div id="result">
+         .row:after {
+         content: "";
+         display: table;
+         clear: both;
+         }
+         .center_logo {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+         }
+      </style>
+   </head>
 
-   </div>
-</body>
-
+   <body>
+      <br>
+      <img class="center_logo" style="border-radius: 20px; border: 100px black;" height="200vh" alt="Robot logo" src="/images/Maverick.png"></img>
+      <br><br>
+      <div class="row">
+         <div class="columnside"></div>
+            <div class="column">
+               <div class="center">
+                  <form class="center" action = "http://localhost:5000/" method = "post">
+                        <p>User ID:</p>
+                        <p><input type = "text" name = "nm"  id="nm" /></p>
+                        <p>Product ID:</p>
+                        <p><input type = "text" name = "pr" id="pr"/></p>
+                        <p>Quantity (in HL):</p>
+                        <p><input type = "text" name = "qty" id="qty"/></p>
+                        <p><input type = "submit" value="Provide Recommendation" class="btn" /></p>
+                  </form>
+               </div>
+            </div>
+            <div class="columnside">
+         </div>
+      </div>
+   </body>
 </html>
