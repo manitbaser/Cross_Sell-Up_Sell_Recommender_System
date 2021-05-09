@@ -11,6 +11,13 @@ def isfloat(value):
   except ValueError:
     return False
 
+def isint(value):
+  try:
+    int(value)
+    return True
+  except ValueError:
+    return False
+
 app = Flask(__name__, template_folder='template', static_folder='static', static_url_path='')
 data1 = list(pd.read_csv('./blacklisted_wholesaler_product.csv')['wholesaler id'])
 data2 = list(pd.read_csv('./blacklisted_product_product.csv')['product id'])
@@ -51,9 +58,9 @@ def login():
 		user_qty = request.form['qty']
 		# Error Handling
 		
-		if user_id=='' or int(user_id) not in (data1):
+		if user_id=='' or isint(user_id)==False or int(user_id) not in (data1):
 			return render_template('index.html', flash_message="Invalid User ID provided")
-		if user_product=='' or int(user_product) not in (data2):
+		if user_product=='' or isint(user_product)==False or int(user_product) not in (data2):
 			return render_template('index.html', flash_message="Invalid Product ID provided")
 		if user_qty=='' or isfloat(user_qty)==False:
 			return render_template('index.html', flash_message="Invalid Quantity provided")
