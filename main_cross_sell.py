@@ -47,7 +47,7 @@ def find_top_ids(user_id):
   user_product_vector = product_vectors[user_index]
   product_similarity_list = [similarity(user_product_vector, vector) for vector in product_vectors]
   product_similarity_list[user_index] = 0.0
-  product_similar_user_index = list(np.argsort(product_similarity_list)[-2:][::-1])
+  product_similar_user_index = list(np.argsort(product_similarity_list)[-20:][::-1])
   product_similar_user_id = [wholesalers[i] for i in product_similar_user_index]
 
   location_pricing_similar_user_id = groupements_sort(user_id, nearest_wholesalers(user_id))
@@ -67,12 +67,14 @@ def recommend(user_id, user_product, product_similar_user_id, location_pricing_s
   for id in product_similar_user_id:
     arr1 = arr1 + wholesalers_info['products'][id]
   arr1 = [i for i in arr1 if i not in blacklist_wholesaler_product_list+blacklist_product_product_list]
+  arr1 = [i for i in arr1 if i != user_product]
   rec1 = [i for i,j in Counter(arr1).most_common(3)]
 
   arr2 = []
   for id in location_pricing_similar_user_id:
     arr2 = arr2 + wholesalers_info['products'][id]
   arr2 = [i for i in arr2 if i not in blacklist_wholesaler_product_list+blacklist_product_product_list]
+  arr2 = [i for i in arr2 if i != user_product]
   rec2 = [i for i,j in Counter(arr2).most_common(3)]
   return rec1, rec2
 
