@@ -22,6 +22,9 @@ app = Flask(__name__, template_folder='template', static_folder='static', static
 data1 = list(pd.read_csv('./blacklisted_wholesaler_product.csv')['wholesaler id'])
 data2 = list(pd.read_csv('./blacklisted_product_product.csv')['product id'])
 
+prod_info = pd.read_csv('./products_info.csv', index_col="id")
+user_info = pd.read_csv('./wholesalers_info.csv', index_col="id")
+
 @app.route('/success/<user_id>/<user_product>/<user_qty>/',methods = ['GET', 'POST'])
 def success(user_id, user_product, user_qty):
 	if request.method =='POST':
@@ -55,6 +58,7 @@ def login():
 		user_id = request.form['nm']
 		user_product= request.form['pr']
 		user_qty = request.form['qty']
+		
 		# Error Handling
 		
 		if user_id=='' or isint(user_id)==False or int(user_id) not in (data1):
@@ -65,6 +69,10 @@ def login():
 			return render_template('index.html', flash_message="Invalid Quantity provided")
 		if (float(user_qty)<0):
 			return render_template('index.html', flash_message="Invalid Quantity provided")
+		if int(user_id) not in list(user_info.index):
+			return render_template('index.html', flash_message="Enter User ID details in the database ")
+		if int(user_product) not in list(prod_info.index):
+			return render_template('index.html', flash_message="Enter Product ID details in the database such as brand etc. ")
 		return redirect(url_for('success',user_id = user_id, user_product=user_product, user_qty=user_qty))
 	else:
 		return render_template('index.html')
