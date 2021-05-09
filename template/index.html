@@ -51,6 +51,11 @@
                         <p><input type = "text" name = "qty" id="qty"/></p>
                         <p><input type = "submit" value="Provide Recommendation" class="btn" /></p>
                   </form>
+                  {% if flash_message %}
+                     <div class="alert alert-warning">
+                        {{ flash_message }}
+                     </div>
+                  {% endif %}
                </div>
             </div>
             <div class="columnside">
