@@ -1,7 +1,8 @@
 
 # Cross-Sell Up-Sell Recommender System
 A recommender system that enables cross sell and upsell of products (either new products or already bought products) that will enable higher revenue generation. The data captures material that is sent to the wholesalers over a span of time.
-
+Link for the presentation - https://drive.google.com/file/d/1o8j2kPF_6vMz_LpxZn8uiZ_DAk83tkgU/view?usp=sharing
+Here is a video of the working of the platform. Click on it to get directed to the Google Drive link: 
 [![](Sample.png)](https://drive.google.com/file/d/1n7JeZZ4E5O_HIuUbOQGvoNWYFVpzAHEV/view?usp=sharing)
 
 ## Objectives
@@ -48,8 +49,13 @@ The dataset has been provided by AB InBev as a part of their hackathon Maverick 
 
 ```bash
    pip install -r requirements.txt
-```   
+```  
 
+6. Running the code:
+
+```bash
+   python main_flask.py
+```  
 
 
 ## Contributing
