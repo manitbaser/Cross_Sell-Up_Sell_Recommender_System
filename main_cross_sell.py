@@ -17,7 +17,9 @@ def similarity(vector1, vector2):
   return np.dot(vector1, vector2)/(np.linalg.norm(vector1)*np.linalg.norm(vector2))
 
 def nearest_wholesalers(user_id):
-  dist = {i:distance.euclidean(wholesalers_info['location'][user_id], wholesalers_info['location'][i]) for i in wholesalers_info.index}
+  if wholesalers_info['location'][user_id] == ('nan', 'nan'):
+    return []
+  dist = {i:distance.euclidean(wholesalers_info['location'][user_id], wholesalers_info['location'][i]) for i in wholesalers_info.index if wholesalers_info['location'][i]!=('nan', 'nan')}
   dist.pop(user_id)
   nearest_ids = list(sorted(dist.items(), key = lambda kv:(kv[1], kv[0])))[:20]
   return nearest_ids

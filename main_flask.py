@@ -62,7 +62,7 @@ def login():
 		# Error Handling
 		
 		if user_id=='' or isint(user_id)==False or int(user_id) not in (data1):
-			return render_template('index.html', flash_message="Invalid User ID provided")
+			return render_template('index.html', flash_message="Invalid Wholesaler ID provided")
 		if user_product=='' or isint(user_product)==False or int(user_product) not in (data2):
 			return render_template('index.html', flash_message="Invalid Product ID provided")
 		if user_qty=='' or isfloat(user_qty)==False:
@@ -70,17 +70,12 @@ def login():
 		if (float(user_qty)<0):
 			return render_template('index.html', flash_message="Invalid Quantity provided")
 		if int(user_id) not in list(user_info.index):
-			return render_template('index.html', flash_message="Enter User ID details in the database ")
+			return render_template('index.html', flash_message="Enter Wholesaler ID details in the database ")
 		if int(user_product) not in list(prod_info.index):
 			return render_template('index.html', flash_message="Enter Product ID details in the database such as brand etc. ")
 		return redirect(url_for('success',user_id = user_id, user_product=user_product, user_qty=user_qty))
 	else:
 		return render_template('index.html')
-
-# @app.route('/product_product_blacklist')
-# def analysis():
-# 	x = show_blacklist_product_product()
-# 	return render_template("blacklist_p2p.html", data=x)
 
 if __name__ == '__main__':
    app.run(debug = True)

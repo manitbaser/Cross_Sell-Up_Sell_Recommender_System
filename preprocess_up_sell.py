@@ -5,14 +5,14 @@ import numpy as np
 data = pd.read_excel('./Data.xlsx')
 
 initial_size = len(data)
-data = data[pd.notnull(data['Degre Alc'])]
+data.dropna(subset=['Brand', 'Subrand', 'SEGMENTS : Pils / Spécialités / Superspécialités/Bouteille Young adult', 'Container Size', 'Segment LE', 'Degre Alc'], how='all', inplace=True)
 final_size = len(data)
 
 data.fillna('nan', inplace=True)
 
 products = list(set(data['Material']))
 product_info = [{'id':i,
-				 'degalc': int(list(data[data['Material'] == i]['Degre Alc'])[0]),
+				 'degalc': int(list(data[data['Material'] == i]['Degre Alc'])[0]) if list(data[data['Material'] == i]['Degre Alc'])[0] != 'nan' else 'nan',
 				 'brand': list(data[data['Material'] == i]['Brand'])[0],
 				 'subrand': list(data[data['Material'] == i]['Subrand'])[0],
 				 'segment': list(data[data['Material'] == i]['SEGMENTS : Pils / Spécialités / Superspécialités/Bouteille Young adult'])[0],
@@ -20,7 +20,7 @@ product_info = [{'id':i,
 				 'size': list(data[data['Material'] == i]['Container Size'])[0]} for i in products]
 
 df_products_info = pd.DataFrame(product_info).set_index("id")
-degalcs = list(set([int(i) for i in data['Degre Alc']]))
+degalcs = list(set([int(i) for i in data['Degre Alc'] if i!='nan']))
 brands = [x for x in list(set(data['Brand'])) if x!='nan']
 sub_brands = [x for x in list(set(data['Subrand'])) if x!='nan']
 segments = [x for x in list(set(data['SEGMENTS : Pils / Spécialités / Superspécialités/Bouteille Young adult'])) if x!='nan']
