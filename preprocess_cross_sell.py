@@ -4,7 +4,9 @@ import numpy as np
 data = pd.read_excel('./Data.xlsx')
 
 initial_size = len(data)
-data = data[pd.notnull(data['Longitude'])]
+# data = data[pd.notnull(data['Longitude'])]
+data['Longitude'] = data['Longitude'].fillna('nan')
+data['Latitude'] = data['Latitude'].fillna('nan')
 final_size = len(data)
 
 wholesalers = list(set(data['Ship-to nu']))

@@ -59,7 +59,7 @@
 			<img class="center_logo" height="300vh" alt="Robot logo" src="/images/Maverick.png"></img>
 			<br><br>
 			<form class="center" action = "/success/{{user_id}}/{{user_product}}/{{user_qty}}/" method = "post">
-				Blacklist for Customer:
+				Blacklist for Wholesaler:
 				<p><input type = "text" placeholder="Enter Product ID" name = "bc"  id="bc"/><input type = "submit" value="Blacklist" class="btn"  /></p>
 			<!-- </form>
 			<form class="center"> -->
@@ -70,7 +70,7 @@
             <div class="column">
                <div class="center">
 				
-				   <form class="center">New recommendations based on users using similar product:
+				   <form class="center">New recommendations based on wholesalers using similar product:
 					{% if res[0]|length > 0 %}
 					<br>
 					<table class="table">
@@ -92,7 +92,7 @@
 						{% endif %}
 					</form>
 					
-				   <form class="center">New recommendations based on users in similar location and groupements:
+				   <form class="center">New recommendations based on wholesalers in similar location and groupements:
 					<br>
 					{% if res[1]|length > 0 %}
 					<table class="table">
@@ -134,7 +134,7 @@
 						</table>
 						{% endif %}
 				   </form>
-				   <form class="center">Previously ordered products recommendations based on users using similar product:
+				   <form class="center">Previously ordered products recommendations based on wholesalers using similar product:
 					<br>
 					{% if res[3]|length > 0 %}
 					<table class="table">
@@ -156,7 +156,7 @@
 						{% endif %}
 
 				   </form>
-				   <form class="center">Previously ordered products recommendations based on users in similar location and groupements:
+				   <form class="center">Previously ordered products recommendations based on wholesalers in similar location and groupements:
 						<br>
 						{% if res[4]|length > 0 %}
 						<table class="table">
